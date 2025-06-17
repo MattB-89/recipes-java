@@ -25,7 +25,7 @@ public class DbConnection {
 		try {
 			Connection conn = DriverManager.getConnection(uri);
 			System.out.println("Using connection string " + uri);
-			System.out.println("Connection to schema '" + SCHEMA + "' is successful!  Good job. Way to go Matt!");
+			System.out.println("Connection to schema '" + SCHEMA + "' is successful!  Good job.  Way to go Matt!  Outstanding!");
 			return conn;
 		} catch (SQLException e) {
 			System.out.println("Unable to get connection at " + uri);
