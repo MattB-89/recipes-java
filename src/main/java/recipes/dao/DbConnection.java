@@ -15,7 +15,7 @@ import recipes.exception.DbException;
 public class DbConnection {
 	private static final String HOST = "localhost";
 	private static final String SCHEMA = "recipes";
-	private static final String USER = "recipe";
+	private static final String USER = "recipes";
 	private static final String PASSWORD = "recipe";
 	private static final int PORT = 3306;
 	
@@ -25,11 +25,11 @@ public class DbConnection {
 		try {
 			Connection conn = DriverManager.getConnection(uri);
 			System.out.println("Using connection string " + uri);
-			System.out.println("Connection to schema '" + SCHEMA + "' is successful!  Good job.");
+			System.out.println("Connection to schema '" + SCHEMA + "' is successful!  Good job. Way to go Matt!");
 			return conn;
 		} catch (SQLException e) {
 			System.out.println("Unable to get connection at " + uri);
-			throw new DbException("Unable to get connection at \"" + uri);
+			throw new DbException("Unable to get connection at " + uri);
 		}		
 	}
 }
