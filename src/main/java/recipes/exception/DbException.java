@@ -10,12 +10,6 @@ package recipes.exception;
 public class DbException extends RuntimeException {
 
 	/**
-	 * 
-	 */
-	public DbException() {
-	}
-
-	/**
 	 * @param message
 	 */
 	public DbException(String message) {
@@ -35,7 +29,6 @@ public class DbException extends RuntimeException {
 	 */
 	public DbException(String message, Throwable cause) {
 		super(message, cause);
-		// TODO Auto-generated constructor stub
 	}
 
 }

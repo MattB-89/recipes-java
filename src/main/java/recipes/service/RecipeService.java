@@ -17,8 +17,7 @@ public class RecipeService {
 	private RecipeDao recipeDao = new RecipeDao();
 	
 	public void createAndPopulateTables() {
-		loadFromFile(SCHEMA_FILE);
-		
+		loadFromFile(SCHEMA_FILE);		
 	}
 
 	private void loadFromFile(String fileName) {
@@ -32,7 +31,7 @@ public class RecipeService {
 
 	private List<String> convertContentToSqlStatements(String content) {
 		content = removeComments(content);
-		content = replaceWhiteSpaceSequencesWithSingleSpace(content);
+		content = replaceWhitespaceSequencesWithSingleSpace(content);
 		
 		return extractLinesFromContent(content);
 		
@@ -60,7 +59,7 @@ public class RecipeService {
 		return lines;
 	}
 
-	private String replaceWhiteSpaceSequencesWithSingleSpace(String content) {
+	private String replaceWhitespaceSequencesWithSingleSpace(String content) {
 		return content.replaceAll("\\s+", " ");
 	}
 
@@ -90,4 +89,8 @@ public class RecipeService {
 			throw new DbException(e);
 		}
 	}
+	
+//	public static void main(String[] args) {
+//		new RecipeService().createAndPopulateTables();
+//	}
 }
