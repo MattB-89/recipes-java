@@ -15,8 +15,7 @@ public class RecipeService {
 	private static final String SCHEMA_FILE = "recipe-schema.sql";
 	private static final String DATA_FILE = "recipe_data.sql";
 	
-	private RecipeDao recipeDao = new RecipeDao();
-	
+	private RecipeDao recipeDao = new RecipeDao();	
 	
 	public void createAndPopulateTables() {
 		loadFromFile(SCHEMA_FILE);		
@@ -26,8 +25,6 @@ public class RecipeService {
 	private void loadFromFile(String fileName) {
 		String content = readFileContent(fileName);
 		List<String> sqlStatements = convertContentToSqlStatements(content);
-		
-		//sqlStatements.forEach(line -> System.out.println(line));
 		
 		recipeDao.executeBatch(sqlStatements);
 	}
@@ -48,16 +45,14 @@ public class RecipeService {
 			if(semicolon == -1) {
 				if (!content.isBlank()) {
 					lines.add(content);
-				}
-				
+				}				
 				content = "";
 			}
 			else {
 				lines.add(content.substring(0, semicolon).trim());
 				content = content.substring(semicolon + 1);
 			}
-		}
-		
+		}		
 		return lines;
 	}
 
@@ -78,8 +73,7 @@ public class RecipeService {
 			else {
 				builder.replace(commentPos,  eolPos + 1, "");
 			}
-		}
-		
+		}		
 		return builder.toString();
 	}
 
@@ -91,8 +85,4 @@ public class RecipeService {
 			throw new DbException(e);
 		}
 	}
-	
-//	public static void main(String[] args) {
-//		new RecipeService().createAndPopulateTables();
-//	}
 }

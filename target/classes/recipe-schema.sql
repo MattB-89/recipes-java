@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS recipe;
 
 CREATE TABLE recipe (
-	recipe_id INT /*AUTO_INCREMENT*/ NOT NULL,
+	recipe_id INT AUTO_INCREMENT NOT NULL,
 	recipe_name VARCHAR(128) NOT NULL,
 	notes TEXT,
 	num_servings INT,

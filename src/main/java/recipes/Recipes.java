@@ -28,30 +28,27 @@ public class Recipes {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		//new RecipeService().createAndPopulateTables();
-		
+	public static void main(String[] args) {		
 		new Recipes().displayMenu();
 	}
 	
 	private void displayMenu() {
 		boolean done = false;
 		
-		while(!done) {
-			
+		while(!done) {			
 			
 			try {
 				int operation = getOperation();	
 				
 				switch(operation) {
-				case -1:
-					done = exitMenu();
-					break;
-				case 1:
-					createTables();
-					break;
-				default:
-					System.out.println("\n" + operation + " is not valid.  Try again.");
+					case -1:
+						done = exitMenu();
+						break;
+					case 1:
+						createTables();
+						break;
+					default:
+						System.out.println("\n" + operation + " is not valid.  Try again.");
 				}
 			}
 			catch(Exception e) {
