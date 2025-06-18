@@ -29,7 +29,7 @@ public class Recipes {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new RecipeService().createAndPopulateTables();
+		//new RecipeService().createAndPopulateTables();
 		
 		new Recipes().displayMenu();
 	}
