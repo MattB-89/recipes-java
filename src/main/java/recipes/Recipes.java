@@ -24,7 +24,8 @@ public class Recipes {
 	//@formatter:off
 	private List<String> operations = List.of(
 			"1) Create and populate all tables",
-			"2) Add a recipe"
+			"2) Add a recipe",
+			"3) List recipes"
 	);			
 	//@formatter:on			
 	
@@ -53,6 +54,9 @@ public class Recipes {
 					case 2:
 						addRecipe();
 						break;
+					case 3:
+						listRecipes();
+						break;
 					default:
 						System.out.println("\n" + operation + " is not valid.  Try again.");
 				}
@@ -61,6 +65,15 @@ public class Recipes {
 				System.out.println("\nError: " + e.toString() + " Try again.");
 			}
 		}
+	}
+
+	private void listRecipes() {
+		List<Recipe> recipes = recipeService.fetchRecipes();
+		
+		System.out.println("\nRecipes:");
+		
+		recipes.forEach(
+				recipe -> System.out.println("    " + recipe.getRecipeId() + ": " + recipe.getRecipeName()));
 	}
 
 	private void addRecipe() {
