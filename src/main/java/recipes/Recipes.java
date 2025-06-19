@@ -36,7 +36,8 @@ public class Recipes {
 			"5) Add ingredient to current recipe",
 			"6) Add step to current recipe",
 			"7) Add category to current recipe",
-			"8) Modify step in current recipe"
+			"8) Modify step in current recipe",
+			"9) Delete recipe"
 	);
 				
 	//@formatter:on			
@@ -84,12 +85,30 @@ public class Recipes {
 					case 8:
 						modifyStepInCurrentRecipe();
 						break;
+					case 9:
+						deleteRecipe();
+						break;
 					default:
 						System.out.println("\n" + operation + " is not valid.  Try again.");
 				}
 			}
 			catch(Exception e) {
 				System.out.println("\nError: " + e.toString() + " Try again.");
+			}
+		}
+	}
+
+	private void deleteRecipe() {
+		listRecipes();
+		Integer recipeId = getIntInput("Enter the ID of the recipe to delete");
+		
+		if(Objects.nonNull(recipeId)) {
+			recipeService.deleteRecipe(recipeId);
+			
+			System.out.println("You have deleted recipe " + recipeId);
+			
+			if(Objects.nonNull(curRecipe) && curRecipe.getRecipeId().equals(recipeId)) {
+				curRecipe = null;
 			}
 		}
 	}

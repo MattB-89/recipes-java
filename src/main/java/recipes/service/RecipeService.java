@@ -133,4 +133,10 @@ public class RecipeService {
 			throw new DbException("Step with ID= " + step.getStepId() + " does not exist.");
 		}
 	}
+
+	public void deleteRecipe(Integer recipeId) {
+		if(!recipeDao.deleteRecipe(recipeId)) {
+			throw new DbException("Recipe with ID= " + recipeId + " does not exist.");
+		}
+	}
 }
