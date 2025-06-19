@@ -35,7 +35,8 @@ public class Recipes {
 			"4) Select working recipe",
 			"5) Add ingredient to current recipe",
 			"6) Add step to current recipe",
-			"7) Add category to current recipe"
+			"7) Add category to current recipe",
+			"8) Modify step in current recipe"
 	);
 				
 	//@formatter:on			
@@ -80,12 +81,44 @@ public class Recipes {
 					case 7:
 						addCategoryToCurrentRecipe();
 						break;
+					case 8:
+						modifyStepInCurrentRecipe();
+						break;
 					default:
 						System.out.println("\n" + operation + " is not valid.  Try again.");
 				}
 			}
 			catch(Exception e) {
 				System.out.println("\nError: " + e.toString() + " Try again.");
+			}
+		}
+	}
+
+	private void modifyStepInCurrentRecipe() {
+		if(Objects.isNull(curRecipe)) {
+			System.out.println("\nPlease select a recipe first.");
+			return;
+		}
+		
+		List<Step> steps = recipeService.fetchSteps(curRecipe.getRecipeId());
+		
+		System.out.println("\nSteps for current recipe");
+		
+		steps.forEach(step -> System.out.println("   " + step));
+		
+		Integer stepId = getIntInput("Enter step ID of step to modify");
+		
+		if(Objects.nonNull(stepId)) {
+			String stepText = getStringInput("Enter new step text");
+			
+			if(Objects.nonNull(stepText)) {
+				Step step = new Step();
+				
+				step.setStepId(stepId);
+				step.setStepText(stepText);
+				
+				recipeService.modifyStep(step);
+				curRecipe = recipeService.fetchRecipeById(curRecipe.getRecipeId());
 			}
 		}
 	}

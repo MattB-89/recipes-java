@@ -95,13 +95,13 @@ public class Recipe {
 		
 		String recipe = "";
 		
-		recipe += "\n    ID=" + recipeId;
-		recipe += "\n    recipeName=" + recipeName;
-		recipe += "\n    notes=" + notes;
-		recipe += "\n    numServings=" + numServings;
-		recipe += "\n    prepTime=" + prepTime;
-		recipe += "\n    cookTime=" + cookTime;
-		recipe += "\n    createdAt=" + createdAt;
+		recipe += "\n    ID= " + recipeId;
+		recipe += "\n    recipeName= " + recipeName;
+		recipe += "\n    notes= " + notes;
+		recipe += "\n    numServings= " + numServings;
+		recipe += "\n    prepTime= " + prepTime;
+		recipe += "\n    cookTime= " + cookTime;
+		recipe += "\n    createdAt= " + createdAt;
 		
 		recipe += "\n    Ingredients:";
 

@@ -73,7 +73,7 @@ public class Ingredient extends EntityBase {
 	public String toString() {
 		StringBuilder b = new StringBuilder();
 		
-		b.append("ID=").append(ingredientId).append(": ");
+		b.append("ID= ").append(ingredientId).append(": ");
 		b.append(toFraction(amount));
 		
 		if(Objects.nonNull(unit) && Objects.nonNull(unit.getUnitId())) {
