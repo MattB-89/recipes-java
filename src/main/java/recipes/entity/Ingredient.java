@@ -2,13 +2,12 @@ package recipes.entity;
 
 import java.math.BigDecimal;
 import java.util.Objects;
-
 import provided.entity.EntityBase;
 
 public class Ingredient extends EntityBase {
 	private Integer ingredientId;
 	private Integer recipeId;
-	private Unit unitId;
+	private Unit unit;
 	private String ingredientName;
 	private String instruction;
 	private Integer ingredientOrder;
@@ -30,12 +29,12 @@ public class Ingredient extends EntityBase {
 		this.recipeId = recipeId;
 	}
 
-	public Unit getUnitId() {
-		return unitId;
+	public Unit getUnit() {
+		return unit;
 	}
 
-	public void setUnitId(Unit unitId) {
-		this.unitId = unitId;
+	public void setUnit(Unit unit) {
+		this.unit = unit;
 	}
 
 	public String getIngredientName() {
@@ -77,9 +76,9 @@ public class Ingredient extends EntityBase {
 		b.append("ID=").append(ingredientId).append(": ");
 		b.append(toFraction(amount));
 		
-		if(Objects.nonNull(unitId) && Objects.nonNull(unitId.getUnitId())) {
-			String singular = unitId.getUnitNameSingular();
-			String plural = unitId.getUnitNamePlural();
+		if(Objects.nonNull(unit) && Objects.nonNull(unit.getUnitId())) {
+			String singular = unit.getUnitNameSingular();
+			String plural = unit.getUnitNamePlural();
 			String word = amount.compareTo(BigDecimal.ONE) > 0 ? plural : singular;
 			
 			b.append(word).append(" ");
